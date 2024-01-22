@@ -23,8 +23,8 @@ const Body = () => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        " https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
-      // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.43503979273124&lng=78.33982840346458&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        `https://api.allorigins.win/raw?url=${encodeURIComponent('https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING')}` );
+      // "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.43503979273124&lng=78.33982840346458&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -58,7 +58,7 @@ const Body = () => {
   console.log(filteredRestaurant);
 
   const { loggedInUser, setUserName } = useContext(UserContext);
-  
+
   if (onlineStatus === false){
     return (
     <h1>Looks like you're offline!! Please check your internet connection</h1>
